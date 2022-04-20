@@ -95,9 +95,14 @@ document.getElementById("getSinglePoke").addEventListener("click", (event) => {
 //Prende solo tutti i pokemon // VA!
 async function getAllPoke2() {
 
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+
     var requestOptions = {
         method: 'GET',
-        redirect: 'follow'
+        redirect: 'follow',
+        headers: myHeaders
     };
 
     for (let index = 1; index < 252; index++) {
@@ -211,10 +216,14 @@ function uppercaseFirstLetter(string) {
 
 //DA RIELAVORARE
 function getPoke(namePoke) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
 
     var requestOptions = {
         method: 'GET',
-        redirect: 'follow'
+        redirect: 'follow',
+        headers: myHeaders
     };
 
     fetch("https://pokeapi.co/api/v2/pokemon/" + namePoke.toLowerCase(), requestOptions)
