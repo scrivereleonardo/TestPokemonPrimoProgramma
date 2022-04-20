@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <title>Pokèdex</title>
+</head>
+
+<body style="background-color: rgba(12, 110, 45, 0.568);">
+    <!-- TODO , STICK HEADER TOP -->
+    <div class="rowElements" >
+        <header class="stickyH row1">
+            <div class="nes-container is-centered">
+                <!-- tite -->
+                <h1 class="" style="font-weight: bold;">Pokèdex </h1>
+
+                <div  style="display: flex; float: inline-start;">
+                    <i id="ashIcon" class="nes-ash moveAsh" style=" width: 0%;" ></i>
+                    <p id="subtitle" style="width: 100%;"> Search Pokèmon</p>
+                </div>
+                <!-- title^ -->
+                <!-- input -->
+                <div style="margin: 3px; float: inline-start;">
+                    <input type="text" class="nes-input" name="inputPoke" id="inputPoke" placeholder="Nome Pokèmon"
+                        style="margin: 2px auto 15px; ">
+
+                    <!-- Richiamare la funzione possibilmente nello script invece che html magari con eventlistener click quper esempio, (NON USARE onclick="getPoke(document.getElementById('inputPoke').value)" QUINDI) -->
+                    <button id="getSinglePoke" class="nes-btn">Start</button>
+
+                    <button id="jumpToGen" class="nes-btn" type="button">GEN 2</button>
+
+                </div>
+                <!-- input ^-->
+            </div>
+
+
+        </header>
+
+
+        <div id="bodyScroller" class="container row2">
+            <br>
+            <div class="parent" id="divList" >
+                <!-- Qui ci sono le card -->
+            </div>
+
+        </div>
+    </div>
+
+    <dialog class="nes-dialog " id="dialog-default">
+        <form method="dialog">
+            <p class="title">Ehy You!</p>
+            <p>I don't think this Pokèmon exist!</p>
+            <menu class="dialog-menu">
+                <button class="nes-btn" style="width: 80%;">Cancel</button>
+
+            </menu>
+        </form>
+    </dialog>
+
+    <!--  -->
+    <div id="modal" class="modal ">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="closeModal" class="xClose"> <i class="nes-icon close is-large"></i></span>
+            <br>
+            <img id="pokeImg" src="" alt=""
+                style="background-image:linear-gradient(rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.11)),url(http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/abc457fc9571e42.png); background-size:cover;">
+            <hr>
+            <p class="modalID">ID Pokemon:<span id="idModal"></span></p>
+
+        </div>
+
+        <p id="balloonTalking" class="nes-balloon from-left nes-pointer" style="justify-content:flex-start ;">
+            <!-- balloon text -->
+        </p>
+    </div>
+    <!--  -->
+    <script src="script.js"></script>
+</body>
+
+</html>

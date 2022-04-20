@@ -1,0 +1,320 @@
+/* Dai area alle card, no shadows */
+/*RENDI DINAMICO HEADER*/
+/*Guardati bene le positions*/
+
+/*!!!!!!!!!!!!!!!!!!!! NESS.CSS SOVRASCRIVE TANTE COSE !!!!!!!!!!!!!!!!!!!!!*/
+
+.parent {
+    width: 100%;
+    display: grid;
+    padding-left: 1em;
+    padding-right: 1em;
+    /*  Sto Border Box mi ha fatto mettere il padding senza farmi scrollare */
+    box-sizing: border-box;
+    grid-template-columns: repeat(6, 16.2%);
+    grid-column-gap: 6px;
+    grid-row-gap: 2px;
+
+
+}
+
+/* Fine Regole CSS */
+
+body {
+    /* Libreria toglie il background */
+    /* font-family: Arial, Helvetica, sans-serif; */
+    
+    width: auto;
+    height: auto;
+    border: 1px rgb(15, 31, 15);
+    margin: 0px;
+
+}
+
+.card {
+    /* background-color: rgb(135, 161, 135); */
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+    border: 4px black solid;
+    margin: 5px auto 5px;
+    font-size: 1em;
+}
+
+.card.dashed {
+    border-style: dashed;
+}
+
+
+.container {
+
+    width: 100%;
+    margin-top: 370px;
+    /*Margina = all'altezza dell header*/
+    color: black;
+}
+
+#subtitle {
+    font-size: 2em;
+}
+
+.containerCard {
+    /* allinea nomi */
+    padding-left: 10px;
+    padding-right: 10px;
+    /* Si può usare una grid? */
+}
+
+
+/* SISTEMA STICKY, SOVRAPPONE LE PRIME IMMAGINI E NON RIEMPIE TUTTO */
+.stickyH {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /*all'altezza dell header = Margina */
+    background-color: rgb(90, 133, 103);
+    /* border-top: 4px rgb(39, 82, 39) solid;
+    border-bottom: 4px rgb(39, 82, 39) solid; */
+}
+
+input {
+    background-color: rgb(39, 82, 39, 0.5);
+    color: white;
+    border-color: rgb(15, 31, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input::placeholder {
+    color: rgb(160, 172, 159);
+}
+
+/* SOVRASCRITTO DA NESS.CSS */
+button {
+    background-color: rgb(39, 82, 39);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: rgb(15, 31, 15);
+}
+
+/* STUDIATI DISPLAY FLEX */
+
+h1 {
+    color: rgb(0, 0, 0)
+}
+
+h2,
+h3 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+
+}
+
+p {
+    text-align: center;
+    color: rgb(0, 0, 0);
+
+}
+
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 10px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 30px;
+    height: auto;
+    width: 60%;
+ 
+    margin-top: 100px;
+
+
+}
+
+.xClose {
+    color: #aaaaaa;
+    float: left;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.xClose:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modalID {
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#pokeImg {
+    width: 50%;
+    margin: 10px auto 20px;
+    display: block;
+}
+
+#inputPoke {
+    height: 60px;
+    width: 45%
+}
+
+#getSinglePoke {
+    width: 30%;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+#balloonTalking {
+    font-size: 3em;
+}
+
+.moveAsh {
+    animation-name: walk;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+
+}
+
+@keyframes walk {
+    0% {
+        left: -10%;
+    }
+
+    100% {
+        left: 110%;
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 780px) {
+
+  
+    #ashIcon {
+        display: none;
+    }
+
+    .disappearMobile {
+        display: none;
+    }
+
+    #balloonTalking {
+        font-size: medium;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 4px solid rgb(0, 0, 0);
+        border-radius: 30px;
+        height: auto;
+        width: 80%;
+
+
+    }
+
+    /* regole CSS */
+    .parent {
+        width: 100%;
+        display: grid;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 5px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #subtitle {
+        font-size: medium;
+    }
+
+    .container {
+
+        width: 100%;
+        margin-top: 285px;
+        /*Margina = all'altezza dell header*/
+        color: black;
+    }
+
+    #getSinglePoke {
+        width: 50%;
+    }
+
+    #jumpToGen {
+        width: 35%;
+    }
+
+    #pokeImg {
+        width: 100%;
+    }
+
+    #inputPoke {
+        height: auto;
+        width: 85%
+    }
+
+    /* Non funzionano */
+    .rowElements {
+        width: 100%;
+        grid-template-rows: 1fr 1fr;
+
+    }
+
+    .row1 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .row2 {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+}
+
+/*TROVA UN SISTEMA MIGLIORE O NON NECESSARIO?  */
+/* .center {
+    margin: auto;
+    width: 50%;
+} */
