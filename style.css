@@ -4,6 +4,9 @@
 
 /*!!!!!!!!!!!!!!!!!!!! NESS.CSS SOVRASCRIVE TANTE COSE !!!!!!!!!!!!!!!!!!!!!*/
 
+.hidden2{
+    display: none;
+}
 .parent {
     width: 100%;
     display: grid;

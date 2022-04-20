@@ -39,7 +39,7 @@ document.getElementById("jumpToGen").addEventListener("click", (event) => {
 window.addEventListener('load', (event) => {
     if ( localStorage.getItem("allPokeArray") == undefined ||localStorage.getItem("allPokeArray") == null || localStorage.getItem("allPokeArray")==[{}])  {
         localStorage.setItem("allPokeArray", [{}])
-        alert("Il PRIMO caricamento ci mettrà un po, devi caricare 251 Pokemon e le loro immagini!")
+        alert("Il PRIMO caricamento ci metterà un po, che deve caricare 251 Pokemon e le loro immagini")
         getAllPoke2()
 
         let usefullResultPokeSTR = localStorage.getItem("allPokeArray")
@@ -119,14 +119,14 @@ async function getAllPoke2() {
         headers: myHeaders
     };
 
-    for (let index = 1; index < 252; index++) {
+    for (let index = 1; index < 251; index++) {
         await fetch("https://pokeapi.co/api/v2/pokemon/" + index, requestOptions)
             .then(response => response.json())
             .then(result => {
                 counterLoad=counterLoad+1
                 document.getElementById("test").innerHTML="Pokemon Caricati "+counterLoad+"/251"
                 if (counterLoad>249) {
-                    document.getElementById("test").classList("hidden")
+                    document.getElementById("test").classList.add("hidden2")
                 }
                 allPokeEverything.push(result)
                 usefullResultPoke.push({
@@ -144,14 +144,13 @@ async function getAllPoke2() {
             })
             .catch(error => console.log('ERRORE CARICAMENTO', error));
     }
+    var usefullResultPokeSTR = JSON.stringify(usefullResultPoke)
 
+    localStorage.setItem("allPokeArray", usefullResultPokeSTR)
 
     generateCard()
-    let usefullResultPokeSTR = JSON.stringify(usefullResultPoke)
-    localStorage.setItem("allPokeArray", usefullResultPokeSTR)
     //localStorage.clear()
 }
-
 function iterateMoves(singlePoke) {
     let moveRes = ""
     let moveResArray = []
