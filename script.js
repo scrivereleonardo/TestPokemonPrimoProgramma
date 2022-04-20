@@ -37,13 +37,27 @@ document.getElementById("jumpToGen").addEventListener("click", (event) => {
 });
 
 window.addEventListener('load', (event) => {
-    localStorage.setItem("allPokeArray", [{}])
-    getAllPoke2()
+    if ( localStorage.getItem("allPokeArray") == undefined ||localStorage.getItem("allPokeArray") == null || localStorage.getItem("allPokeArray")==[{}])  {
+        localStorage.setItem("allPokeArray", [{}])
+        alert("Il PRIMO caricamento ci mettrà un po, devi caricare 251 Pokemon e le loro immagini!")
+        getAllPoke2()
+
+        let usefullResultPokeSTR = localStorage.getItem("allPokeArray")
+        usefullResultPoke = JSON.parse(usefullResultPokeSTR)
+    }
+    else{
+
+
+        let usefullResultPokeSTR = localStorage.getItem("allPokeArray")
+        usefullResultPoke = JSON.parse(usefullResultPokeSTR)
+        console.log(usefullResultPoke);
+        generateCard()
+    }
+
     
 
-    let usefullResultPokeSTR = localStorage.getItem("allPokeArray")
-    usefullResultPoke = JSON.parse(usefullResultPokeSTR)
-    generateCard()
+
+    
 
 
 });
@@ -94,7 +108,7 @@ document.getElementById("getSinglePoke").addEventListener("click", (event) => {
 
 //Prende solo tutti i pokemon // VA!
 async function getAllPoke2() {
-
+    var counterLoad=0
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Access-Control-Allow-Origin", "*");
@@ -109,6 +123,11 @@ async function getAllPoke2() {
         await fetch("https://pokeapi.co/api/v2/pokemon/" + index, requestOptions)
             .then(response => response.json())
             .then(result => {
+                counterLoad=counterLoad+1
+                document.getElementById("test").innerHTML="Pokemon Caricati "+counterLoad+"/251"
+                if (counterLoad>249) {
+                    document.getElementById("test").classList("hidden")
+                }
                 allPokeEverything.push(result)
                 usefullResultPoke.push({
                     id: result.id,
